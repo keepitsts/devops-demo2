@@ -1,7 +1,5 @@
 # devopsdemo
 
-# build
-
 This application was generated using JHipster 6.0.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.0.0](https://www.jhipster.tech/documentation-archive/v6.0.0).
 
 ## Development
