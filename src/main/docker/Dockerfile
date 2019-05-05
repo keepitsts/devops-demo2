@@ -16,6 +16,6 @@ ENTRYPOINT ["./entrypoint.sh"]
 
 EXPOSE 8080
 
-#WPD ADD *.war app.war
-ADD *.jar app.jar
+ADD *.war app.war
+#WPD ADD *.jar app.jar
 
