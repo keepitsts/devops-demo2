@@ -1,0 +1,15 @@
+version: '2'
+services:
+  devopsdemo-app:
+    image: devopsdemo
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://stsdb01.ctvnjc0tu5zn.us-east-1.rds.amazonaws.com:3306/stsdemo?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - SPRING.DATASOURCE.USERNAME=admin
+      - SPRING.DATASOURCE.PASSWORD=simpletech
+      - SPRING.DATASOURCE.DRIVERcLASSnAME=com.mysql.jdbc.Driver
+      - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+    ports:
+      - 8080:8080
