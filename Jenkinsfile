@@ -43,17 +43,9 @@ node {
         archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
     }
 
-
-    def dockerImage
-    stage('build docker') {
-        sh "cp -R src/main/docker build/"
-        sh "cp build/libs/*.jar build/docker/"
-        dockerImage = docker.build('bdealey/devopsdemo', 'build/docker')
-    }
-
-    stage('publish docker') {
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-            dockerImage.push 'latest'
+    stage('quality analysis') {
+        withSonarQubeEnv('sonarqube') {
+            sh "./gradlew sonarqube --no-daemon"
         }
     }
 }
